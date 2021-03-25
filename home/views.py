@@ -1,5 +1,6 @@
 from django.shortcuts import render,HttpResponse
 from home.models import Contact
+from home.models import Sign
 
 # Create your views here.
 
@@ -8,6 +9,12 @@ def home(request):
     #return HttpResponse("This is my website")
 
 def sign(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
+        psw = request.POST.get("psw")
+        psw_repeat = request.POST.get("psw-repeat")
+        sign = Sign(email = email, psw = psw, psw_repeat = psw_repeat)
+        sign.save()
     return render(request, "sign.html")
     #return HttpResponse("This is sign up page")
 
