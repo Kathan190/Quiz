@@ -21,7 +21,8 @@
 
     <!-- Login section start from here -->
     <div class="container">
-        <form action="" method="post">
+        <form action="/login" method="post">
+        {% csrf_token %}
             <label for="email">Email:</label>
             <input type="text" id="email" name="email" placeholder="Enter email address" required>
 

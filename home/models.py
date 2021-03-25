@@ -18,4 +18,12 @@ class Sign(models.Model):
 
     def __str__(self):
         return self.email
+
+class Login(models.Model):
+    email = models.CharField(max_length=150)
+    psw = models.CharField(max_length=150)
+
+    def __str__(self):
+        return self.email
+    
     
