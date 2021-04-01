@@ -28,6 +28,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                     <button onclick="document.getElementById('id01').style.display='block'" class="w3-button">Signup</button>
                     <button onclick="document.getElementById('id02').style.display='block'" class="w3-button">Login</button>
+                    <button onclick="document.getElementById('id03').style.display='block'" class="w3-button">Contact</button>
 
                 </div>
             </div>
@@ -70,22 +71,54 @@
             <div class="w3-container">
                 <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-display-topright">&times</span>
                 <!-- Form code start from here -->
-                <form>
+                <form action="/" method="post">
+                    {% csrf_token %}
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
                         <label for="psw" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="psw">
+                        <input type="password" class="form-control" name="psw">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" name="Login" value="Login" class="btn btn-primary">Login</button>
                 </form>
                 <!--Form code end here -->
             </div>
         </div>
     </div>
+    <!-- Login modal code end here -->
+
+    <!-- Contact modal code start -->
+    <div id="id03" class="w3-modal">
+        <div class="w3-modal-content">
+            <div class="w3-container">
+                <span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-display-topright">&times</span>
+                <!-- Form code start from here -->
+                <form action="/" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" name="email1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact" class="form-label">Contact-number</label>
+                        <input type="number" class="form-control" name="contact">
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <textarea name="subject" type="textarea" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" name="Contact" value="Contact" class="btn btn-primary">Contact Us</button>
+                </form>
+                <!--Form code end here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact modal code end here -->
 
     <!--custom jumbotrone -->
     <main>
