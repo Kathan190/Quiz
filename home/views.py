@@ -5,11 +5,15 @@ from home.models import Signup
 
 def home(request):
     if request.method == "POST":
-        email = request.POST.get('email')
-        psw = request.POST.get('psw')
-        psw_repeat = request.POST.get('psw_repeat')
-        signup = Signup(email=email, psw=psw, psw_repeat=psw_repeat)
-        signup.save()        
+        if request.POST.get("Signup") == "Signup":
+            email = request.POST.get('email')
+            psw = request.POST.get('psw')
+            psw_repeat = request.POST.get('psw_repeat')
+            if psw == psw_repeat:
+                signup = Signup(email=email, psw=psw, psw_repeat=psw_repeat)
+                signup.save()  
+            else:
+                return HttpResponse("Password is incorrect")
     return render(request, "home.html")
     #return HttpResponse("This is my website")
 
