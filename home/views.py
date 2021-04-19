@@ -14,12 +14,13 @@ def home(request):
             psw_repeat = request.POST.get('psw_repeat')
             print(email,psw,psw_repeat)
 
-            if len(email)<5 or len(psw)<5 or (psw_repeat == psw):
+            if len(email)<5 or len(psw)<5 or (psw_repeat != psw):
                 messages.error(request, 'Please fill the form correctly')
             else:
+                messages.success(request, "Your account is successfully created")
                 signup = Signup(email=email,psw=psw,psw_repeat=psw_repeat)
                 signup.save()
-                messages.success(request, "Your account is successfully created")
+                #messages.success(request, "Your account is successfully created")
 
         
         #contact database code
@@ -40,3 +41,5 @@ def home(request):
     return render(request, "home.html")
     #return HttpResponse("This is my website")
 
+def quizhome(request):
+    return render(request, "quizhome.html")

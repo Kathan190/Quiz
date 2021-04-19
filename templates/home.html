@@ -34,6 +34,12 @@
             </div>
         </div>
     </nav>
+    {% for message in messages %}
+                      <div class="alert alert-{{message.tags}} mb - 0 alert-dismissible fade show" role="alert">
+                      <strong>Message:</strong> {{message}}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+    {% endfor %}
 
     <!-- Sign up modal -->
     <div id="id01" class="w3-modal">
@@ -42,7 +48,7 @@
                 <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times</span>
                 <!-- Form code start from here -->
                 <form action="/" method="post">
-                    {% csrf_token %}
+                    {% csrf_token %} 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
                         <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
@@ -59,12 +65,6 @@
                     <button type="submit" name="Signup" value="Signup" class="btn btn-primary">Signup
                     </button>
                     <br>
-                    {% for message in messages %}
-                      <div class="alert alert-{{message.tags}} mb - 0 alert-dismissible fade show" role="alert">
-                      <strong>Message:</strong> {{message}}
-                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                      </div>
-                    {% endfor %}
                 </form>
                 <!--Form code end here -->
             </div>
@@ -140,7 +140,7 @@
             <div class="col-md-6">
                 <div class="h-100 p-5 text-white bg-dark rounded-3">
                     <h2>About</h2>
-                    <p>Quiz Beast website is a one type of Quiz website. You can check your knowledge here and try to do some highest score among world's best player. There are four types of area. Sports, Cooking, History, Programming. You can access the
+                    <p>Quiz Beast is a one type of Quiz website. You can check your knowledge here and try to do some highest score among world's best player. There are four types of area. Sports, Cooking, History, Programming. You can access the
                         whole website when you create the account. Check it out</p>
                 </div>
             </div>
