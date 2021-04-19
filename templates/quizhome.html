@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    <a class="nav-link active" aria-current="page" href="/account">account</a>
+                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button">Account</button>
                 </div>
             </div>
         </div>
@@ -32,6 +32,17 @@
 
 <!-- Navbar code end here -->
 
+<!-- Account Section -->
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+        <div class="w3-container">
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times</span>
+            <h1>Display your name here</h1>
+        </div>
+    </div>
+</div>
+
+<!-- Account Section end -->
 
 </body>
 </html>
