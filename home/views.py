@@ -28,8 +28,13 @@ def home(request):
                 email = request.POST.get('email1')
                 contact = request.POST.get('contact')
                 subject = request.POST.get('subject')
-                con = Contact(email=email,contact=contact,subject=subject)
-                con.save()
+
+                if len(email)<5 or len(contact)<10 or len(subject)<10:
+                    messages.error(request, 'Please fill the Contact form correctly')
+                else:
+                    messages.success(request, "Your message has been sent. Thank you")
+                    con = Contact(email=email,contact=contact,subject=subject)
+                    con.save()
     
         #login database code
         if request.POST.get("Login") == "Login":
