@@ -9,16 +9,18 @@ def home(request):
     if request.method == "POST":
         #signup database code
         if request.POST.get("Signup") == "Signup":
+            fname = request.POST.get('fname')
+            lname = request.POST.get('lname')
             email = request.POST.get('email')
             psw = request.POST.get('psw')
             psw_repeat = request.POST.get('psw_repeat')
             print(email,psw,psw_repeat)
 
-            if len(email)<5 or len(psw)<5 or (psw_repeat != psw):
+            if len(email)<5 or len(psw)<5 or (psw_repeat != psw) or len(fname)<2 or len(lname)<2:
                 messages.error(request, 'Please fill the form correctly')
             else:
                 messages.success(request, "Your account is successfully created")
-                signup = Signup(email=email,psw=psw,psw_repeat=psw_repeat)
+                signup = Signup(email=email,psw=psw,psw_repeat=psw_repeat, fname=fname, lname=lname)
                 signup.save()
                 #messages.success(request, "Your account is successfully created")
 

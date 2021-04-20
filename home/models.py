@@ -3,6 +3,8 @@ from django.db import models
 # Create your models here.
 
 class Signup(models.Model):
+    fname = models.CharField(max_length=30, default='')
+    lname = models.CharField(max_length=30, default='')
     email = models.CharField(max_length=150, default='')
     psw = models.CharField(max_length=150, default='')
     psw_repeat = models.CharField(max_length=150,default='')
