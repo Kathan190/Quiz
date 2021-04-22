@@ -51,3 +51,9 @@ def home(request):
 
 def quizhome(request):
     return render(request, "quizhome.html")
+
+def handleLogin(request):
+    return HttpResponse("handle login")
+
+def handleLogout(request):
+    return HttpResponse("Handle logout")
